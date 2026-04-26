@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    
+    <xacro:include filename="mobile_base.xacro"  />
+    <xacro:include filename="mobile_base_gazebo.xacro"/>
+    <xacro:include filename="camera.xacro"/>
+    
+
+   
+
+    
+
+
+  
+
+
+
+  
+
+
+
+</robot>
+
+
+
+<!-- when we create a object ,first we create a link(a 3d axis) then we create an ibject which get places acc to the link axis
+ with origin, so origin 0 0 0 menas the centre of object is at at links 0 0 0 if origin 0 0 0.4 menas place centre of box at 0 0 0.4 of link -->
+
+
+
+
+    <!-- <link name="second_link">
+        <visual>
+            <geometry>
+                <cylinder radius="0.1" length="0.2" />
+            </geometry>
+            <origin xyz="0 0 0.1" rpy="0 0 0" />
+            <material name="grey" />
+        </visual>
+    </link> -->
+
+
+
+    <!-- <joint name="base_second_joint" type="prismatic">
+        <parent link="base_link" />
+        <child link="second_link" />
+        <origin xyz="0 0 0.2" rpy="0 0 0" />   in joints we only talk about links(3s axis) ,here origin means the link(3d axis) of parent link, so place the  centre or 0 0 0  of child link at origin 0 0 0  of parent link
+        <axis xyz="1 0 0" />        axis around which to rotate the child , 
+        <limit lower="0.0" upper="0.7" velocity="100" effort="100" />   limit sof rotation in radisn like how mucht it can rotate 1.57 means 90degrees so here from 90 to -90 degree
+    </joint>  -->
