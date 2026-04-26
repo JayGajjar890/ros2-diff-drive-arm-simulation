@@ -84,6 +84,7 @@ You need:
 - `rviz2`
 - `ros_gz_sim`
 - `ros_gz_bridge`
+- `teleop_twist_keyboard`
 
 For example, on a ROS 2 system you can install the common tools with:
 
@@ -94,7 +95,8 @@ sudo apt install ros-${ROS_DISTRO}-xacro \
                  ros-${ROS_DISTRO}-joint-state-publisher-gui \
                  ros-${ROS_DISTRO}-rviz2 \
                  ros-${ROS_DISTRO}-ros-gz-sim \
-                 ros-${ROS_DISTRO}-ros-gz-bridge
+                 ros-${ROS_DISTRO}-ros-gz-bridge \
+                 ros-${ROS_DISTRO}-teleop-twist-keyboard
 ```
 
 `ROS_DISTRO` should already be set after sourcing ROS 2. You can check it with:
@@ -157,7 +159,26 @@ source install/setup.bash
 
 ### Move the mobile base
 
-Send velocity commands to `/cmd_vel`:
+The easiest way to control the robot is with the keyboard using `teleop_twist_keyboard`.
+
+In a new terminal, source ROS 2 and your workspace:
+
+```bash
+source /opt/ros/jazzy/setup.bash
+source install/setup.bash
+```
+
+Then run:
+
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
+
+Use the keys shown in the terminal to move the robot. Keep the teleop terminal selected while driving.
+
+If you want to test movement manually, you can also send velocity commands directly to `/cmd_vel`.
+
+Move forward:
 
 ```bash
 ros2 topic pub /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.3}, angular: {z: 0.0}}" -r 10
@@ -286,7 +307,7 @@ source install/setup.bash
 ## Notes
 
 - Build and run commands should be executed from the repository root.
-- Do not commit `build/`, `install/`, or `log/` folders to GitHub.
+- Only the source files are needed in GitHub. The `build/`, `install/`, and `log/` folders are created automatically after running `colcon build`.
 - The main launch file is:
 
 ```bash
