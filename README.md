@@ -16,6 +16,16 @@ The robot model is written with URDF/Xacro, visualized in RViz, and simulated in
 
 ![RViz Visualization](images/RViz.png)
 
+## Gazebo World and Physics
+
+The simulation uses a custom Gazebo world from:
+
+```text
+src/my_robot_bringup/worlds/test_world.sdf
+```
+
+Gazebo does more than just show the robot visually. It also simulates basic physics, so the robot has mass, wheels, collision shapes, and contact with the ground. This means the robot can collide with objects and behave more like a real robot in a real environment.
+
 ## Features
 
 - Differential drive mobile base
@@ -23,6 +33,7 @@ The robot model is written with URDF/Xacro, visualized in RViz, and simulated in
 - Front camera sensor
 - URDF/Xacro robot description
 - Gazebo simulation world
+- Collision and physics simulation
 - RViz visualization
 - ROS-Gazebo bridge for topics
 - Launch files for easy startup
